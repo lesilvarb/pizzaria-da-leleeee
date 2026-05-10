@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bella Crosta</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+
+  const usuario = localStorage.getItem("usuarioLogado");
+
+  if(!usuario){
+    window.location.href = "login.html";
+  }
+
+</script>
+
+<header>
+
+  <h1>🍕 Bella Crosta</h1>
+
+  <nav>
+    <a href="#">Início</a>
+   <a href="cardapio.html">Cardápio</a>
+    <a href="#">Contato</a>
+  </nav>
+
+  <div class="usuario">
+    👤 <span id="nomeUsuario"></span>
+  </div>
+
+</header>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h2>Bem-vindo!</h2>
+
+    <p>
+      Olá,
+      <span id="nomeUsuario2"></span>
+    </p>
+
+   <a href="cardapio.html" class="btn">
+  Pedir Pizza
+</a>
+
+  </div>
+
+</section>
+
+<script>
+
+  document.getElementById("nomeUsuario").innerText = usuario;
+  document.getElementById("nomeUsuario2").innerText = usuario;
+
+</script>
+
+</body>
+</html>

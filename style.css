@@ -1,0 +1,119 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+  }
+  
+  body{
+    background:#111;
+    color:white;
+  }
+  
+  /* LOGIN E CADASTRO */
+  
+  .container{
+    width:350px;
+    background:#1e1e1e;
+    padding:30px;
+    border-radius:15px;
+  
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  
+  h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#ff9800;
+  }
+  
+  input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+  }
+  
+  button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#ff9800;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+  }
+  
+  button:hover{
+    background:#ffa726;
+  }
+  
+  p{
+    text-align:center;
+    margin-top:15px;
+  }
+  
+  a{
+    color:#ff9800;
+    text-decoration:none;
+  }
+  
+  /* SITE */
+  
+  header{
+    background:#c62828;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  
+  nav a{
+    color:white;
+    margin-left:20px;
+    font-weight:bold;
+  }
+  
+  .usuario{
+    font-weight:bold;
+  }
+  
+  .hero{
+    height:90vh;
+  
+    background:url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1600&auto=format&fit=crop');
+  
+    background-size:cover;
+    background-position:center;
+  
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+  }
+  
+  .hero-content{
+    background:rgba(0,0,0,0.7);
+    padding:40px;
+    border-radius:15px;
+  }
+  
+  .hero h2{
+    font-size:50px;
+    margin-bottom:20px;
+  }
+  
+  .btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ff9800;
+    color:white;
+    border-radius:8px;
+  }

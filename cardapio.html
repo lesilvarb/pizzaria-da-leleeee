@@ -1,0 +1,359 @@
+<!-- cardapio.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio - Bella Crosta</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .menu{
+      padding:40px;
+      text-align:center;
+    }
+
+    .menu h1{
+      margin-bottom:40px;
+      color:#ff9800;
+    }
+
+    .pizza-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .pizza-card{
+      background:#1e1e1e;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .pizza-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .pizza-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .pizza-info{
+      padding:20px;
+    }
+
+    .pizza-info h2{
+      color:#ff9800;
+      margin-bottom:10px;
+    }
+
+    .pizza-info p{
+      margin-bottom:15px;
+      line-height:1.5;
+    }
+
+    .preco{
+      font-size:22px;
+      font-weight:bold;
+      color:#4caf50;
+    }
+
+    .btn-comprar{
+      display:inline-block;
+      margin-top:15px;
+      background:#ff9800;
+      color:white;
+      padding:10px 20px;
+      border-radius:8px;
+      text-decoration:none;
+    }
+
+    .btn-comprar:hover{
+      background:#ffa726;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<header>
+
+  <h1>🍕 Bella Crosta</h1>
+
+  <nav>
+    <a href="index.html">Início</a>
+  </nav>
+
+</header>
+
+<section class="menu">
+
+  <h1>Nosso Cardápio</h1>
+
+  <div class="pizza-grid">
+
+    <!-- CALABRESA -->
+    <div class="pizza-card">
+
+      <img src="calabresa.jpg">
+
+      <div class="pizza-info">
+
+        <h2>Pizza Calabresa</h2>
+
+        <p>
+          Molho de tomate, mussarela, calabresa fatiada,
+          cebola fresca e orégano.
+        </p>
+
+        <div class="preco">
+          R$ 49,90
+        </div>
+
+        <a href="#" class="btn-comprar" onclick="comprarPizza('Pizza Calabresa')">
+        Comprar
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- MARGHERITA -->
+    <div class="pizza-card">
+
+      <img src="margarita.jpg">
+
+      <div class="pizza-info">
+
+        <h2>Pizza Margherita</h2>
+
+        <p>
+          Molho especial, mussarela, tomate fresco,
+          manjericão e azeite.
+        </p>
+
+        <div class="preco">
+          R$ 44,90
+        </div>
+
+        <a href="#" class="btn-comprar" onclick="comprarPizza('Pizza Margherita')">
+          Comprar
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- PORTUGUESA -->
+    <div class="pizza-card">
+
+      <img src="portugues.jpg">
+
+      <div class="pizza-info">
+
+        <h2>Pizza Portuguesa</h2>
+
+        <p>
+          Presunto, ovos, cebola, ervilha,
+          mussarela e molho artesanal.
+        </p>
+
+        <div class="preco">
+          R$ 54,90
+        </div>
+
+        <a href="#" class="btn-comprar">
+          Comprar
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- FRANGO -->
+    <div class="pizza-card">
+
+      <img src="frango.jpg">
+      <div class="pizza-info">
+
+        <h2>Frango com Catupiry</h2>
+
+        <p>
+          Frango desfiado, catupiry cremoso,
+          mussarela e orégano.
+        </p>
+
+        <div class="preco">
+          R$ 59,90
+        </div>
+
+        <a href="#" class="btn-comprar" onclick="comprarPizza('Frango com Catupiry')">
+          Comprar
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script src="javascript.js"></script>
+
+<!-- QUATRO QUEIJOS -->
+<div class="pizza-card">
+
+  <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="pizza-info">
+
+    <h2>Quatro Queijos</h2>
+
+    <p>
+      Mussarela, provolone, parmesão,
+      catupiry e orégano.
+    </p>
+
+    <div class="preco">
+      R$ 62,90
+    </div>
+
+    <a href="#" class="btn-comprar"
+       onclick="comprarPizza('Pizza Quatro Queijos')">
+      Comprar
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<!-- BACON -->
+<div class="pizza-card">
+
+  <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="pizza-info">
+
+    <h2>Pizza Bacon</h2>
+
+    <p>
+      Mussarela, bacon crocante,
+      cebola caramelizada e molho especial.
+    </p>
+
+    <div class="preco">
+      R$ 64,90
+    </div>
+
+    <a href="#" class="btn-comprar"
+       onclick="comprarPizza('Pizza Bacon')">
+      Comprar
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<!-- CHOCOLATE -->
+<div class="pizza-card">
+
+  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="pizza-info">
+
+    <h2>Pizza Chocolate</h2>
+
+    <p>
+      Chocolate ao leite derretido,
+      morango e leite condensado.
+    </p>
+
+    <div class="preco">
+      R$ 49,90
+    </div>
+
+    <a href="#" class="btn-comprar"
+       onclick="comprarPizza('Pizza Chocolate')">
+      Comprar
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<!-- CAMARÃO -->
+<div class="pizza-card">
+
+  <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="pizza-info">
+
+    <h2>Pizza Camarão</h2>
+
+    <p>
+      Camarão temperado,
+      catupiry cremoso e mussarela especial.
+    </p>
+
+    <div class="preco">
+      R$ 79,90
+    </div>
+
+    <a href="#" class="btn-comprar"
+       onclick="comprarPizza('Pizza Camarão')">
+      Comprar
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<!-- BELLA CROSTA ESPECIAL -->
+<div class="pizza-card">
+
+  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="pizza-info">
+
+    <h2>Bella Crosta Especial</h2>
+
+    <p>
+      Molho artesanal, mussarela premium,
+      bacon crocante, cheddar cremoso,
+      cebola caramelizada e toque de alho.
+    </p>
+
+    <div class="preco">
+      R$ 74,90
+    </div>
+
+    <a href="#" class="btn-comprar"
+       onclick="comprarPizza('Bella Crosta Especial')">
+      Comprar
+    </a>
+
+  </div>
+
+</div>
+  </div>
+
+</div>
+
+</body>
+</html>
