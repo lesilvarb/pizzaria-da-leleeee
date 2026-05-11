@@ -53,7 +53,7 @@ function login(){
 
     localStorage.setItem("usuarioLogado", usuarioSalvo.nome);
 
-    alert("Login realizado com sucesso!");
+    mostrarNotificacao("🔓 Login realizado com sucesso!");
 
     window.location.href = "index.html";
 
@@ -121,5 +121,29 @@ function logout(){
 function comprarPizza(nomePizza){
 
   alert("🍕 " + nomePizza + " adicionada ao pedido!");
+
+}
+
+
+function mostrarNotificacao(mensagem){
+
+  let toast = document.getElementById("toast");
+
+  toast.innerHTML = mensagem;
+
+  toast.style.visibility = "visible";
+  toast.style.opacity = "1";
+
+  setTimeout(() => {
+
+    toast.style.opacity = "0";
+
+    setTimeout(() => {
+
+      toast.style.visibility = "hidden";
+
+    }, 500);
+
+  }, 3000);
 
 }

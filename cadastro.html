@@ -38,5 +38,51 @@
 
 <script src="javascript.js"></script>
 
+<div id="toast" style="
+  visibility:hidden;
+  min-width:250px;
+  background:#4caf50;
+  color:white;
+  text-align:center;
+  border-radius:12px;
+  padding:16px;
+  position:fixed;
+  z-index:9999;
+  right:20px;
+  top:20px;
+  font-size:16px;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+  opacity:0;
+  transition:0.5s;
+">
+</div>
+
+<script>
+
+function mostrarNotificacao(mensagem){
+
+  let toast = document.getElementById("toast");
+
+  toast.innerHTML = mensagem;
+
+  toast.style.visibility = "visible";
+  toast.style.opacity = "1";
+
+  setTimeout(() => {
+
+    toast.style.opacity = "0";
+
+    setTimeout(() => {
+
+      toast.style.visibility = "hidden";
+
+    }, 500);
+
+  }, 3000);
+
+}
+
+</script>
+
 </body>
 </html>

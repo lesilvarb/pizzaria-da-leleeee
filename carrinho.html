@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho - Bella Crosta</title>
+
+  <style>
+
+    body{
+      background:#111;
+      color:white;
+      font-family:Arial;
+      margin:0;
+      padding:0;
+    }
+
+    .container{
+      max-width:600px;
+      margin:50px auto;
+      background:#1e1e1e;
+      padding:25px;
+      border-radius:15px;
+    }
+
+    h1{
+      text-align:center;
+      color:#ff9800;
+      margin-bottom:20px;
+    }
+
+    h3{
+      color:#ff9800;
+    }
+
+    ul{
+      list-style:none;
+      padding:0;
+    }
+
+    li{
+      padding:12px;
+      border-bottom:1px solid #333;
+      margin-bottom:10px;
+    }
+
+    .total{
+      margin-top:20px;
+      font-size:20px;
+      color:#4caf50;
+      text-align:center;
+      line-height:1.8;
+    }
+
+    button{
+      width:100%;
+      margin-top:20px;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:#ff9800;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#ffa726;
+    }
+
+    select{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      margin-top:10px;
+      border:none;
+      font-size:16px;
+    }
+
+    .btn-voltar{
+      display:block;
+      text-align:center;
+      margin-top:20px;
+      color:#ff9800;
+      text-decoration:none;
+      font-size:16px;
+    }
+
+    #notificacao{
+      display:none;
+      position:fixed;
+      top:20px;
+      right:20px;
+      background:#4caf50;
+      color:white;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+      font-size:16px;
+      z-index:999;
+    }
+
+    .remover-btn{
+      float:right;
+      background:red;
+      border:none;
+      color:white;
+      padding:5px 10px;
+      border-radius:5px;
+      cursor:pointer;
+      width:auto;
+      margin-top:0;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🛒 Seu Carrinho</h1>
+
+  <ul id="lista-carrinho"></ul>
+
+  <div style="margin-top:20px;">
+
+    <h3>📍 Distância de entrega</h3>
+
+    <select id="distanciaEntrega" onchange="atualizar()">
+
+      <option value="4">
+        🟢 Próximo (até 2km) - R$ 4,00
+      </option>
+
+      <option value="8">
+        🟡 Médio (até 5km) - R$ 8,00
+      </option>
+
+      <option value="12">
+        🔴 Longe (até 10km) - R$ 12,00
+      </option>
+
+    </select>
+
+  </div>
+
+  <div class="total" id="total">
+    Total: R$ 0,00
+  </div>
+
+  <div style="margin-top:20px;">
+
+    <h3>💳 Forma de Pagamento</h3>
+
+    <select id="pagamentoMetodo">
+
+      <option>Dinheiro</option>
+      <option>Cartão de Crédito</option>
+      <option>Cartão de Débito</option>
+      <option>Pix</option>
+
+    </select>
+
+  </div>
+
+  <button onclick="finalizarPedido()">
+    Finalizar Pedido
+  </button>
+
+  <a href="cardapio.html" class="btn-voltar">
+    ⬅ Voltar para o Cardápio
+  </a>
+
+</div>
+
+<div id="notificacao">
+  🍕 Pedido finalizado! Obrigado pela preferência.
+</div>
+
+<script>
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+function atualizar(){
+
+  let lista = document.getElementById("lista-carrinho");
+
+  let total = 0;
+
+  lista.innerHTML = "";
+
+  carrinho.forEach((item, index) => {
+
+    let preco = Number(item.preco) || 0;
+
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+      ${item.nome} - R$ ${preco.toFixed(2)}
+
+      <button class="remover-btn"
+        onclick="removerItem(${index})">
+        X
+      </button>
+    `;
+
+    lista.appendChild(li);
+
+    total += preco;
+
+  });
+
+  let taxa =
+    Number(document.getElementById("distanciaEntrega").value);
+
+  let totalFinal = total + taxa;
+
+  document.getElementById("total").innerHTML = `
+    Subtotal: R$ ${total.toFixed(2)} <br>
+
+    Taxa de entrega: R$ ${taxa.toFixed(2)} <br>
+
+    <strong>Total: R$ ${totalFinal.toFixed(2)}</strong>
+  `;
+
+  localStorage.setItem(
+    "carrinho",
+    JSON.stringify(carrinho)
+  );
+
+}
+
+function removerItem(index){
+
+  carrinho.splice(index, 1);
+
+  localStorage.setItem(
+    "carrinho",
+    JSON.stringify(carrinho)
+  );
+
+  atualizar();
+
+}
+
+function mostrarNotificacao(){
+
+  let notificacao =
+    document.getElementById("notificacao");
+
+  notificacao.style.display = "block";
+
+  setTimeout(() => {
+
+    notificacao.style.display = "none";
+
+  }, 4000);
+
+}
+
+function finalizarPedido(){
+
+  if(carrinho.length === 0){
+
+    alert("Carrinho vazio!");
+
+    return;
+
+  }
+
+  let metodo =
+    document.getElementById("pagamentoMetodo").value;
+
+  let entrega =
+    document.getElementById("distanciaEntrega").value;
+
+  let tipoTexto = "";
+
+  if(entrega == 4){
+
+    tipoTexto = "Entrega Próxima 🟢";
+
+  }
+
+  else if(entrega == 8){
+
+    tipoTexto = "Entrega Média 🟡";
+
+  }
+
+  else{
+
+    tipoTexto = "Entrega Longa 🔴";
+
+  }
+
+  mostrarNotificacao();
+
+  setTimeout(() => {
+
+    alert(
+      "Pedido enviado 🍕\n\n" +
+      "Pagamento: " + metodo + "\n" +
+      "Tipo de entrega: " + tipoTexto
+    );
+
+    localStorage.removeItem("carrinho");
+
+    location.reload();
+
+  }, 2000);
+
+}
+
+atualizar();
+
+</script>
+
+</body>
+</html>
