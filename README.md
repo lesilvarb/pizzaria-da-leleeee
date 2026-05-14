@@ -103,7 +103,7 @@ Integração com redes sociais
 
 
 👨‍💻 Autor
-Desenvolvido por [Seu Nome] durante o curso de Mobile.
+Desenvolvido por Leticia, Ana, Kaio, Mayara durante o curso de Mobile.
 
 📄 Licença
 Este projeto é apenas para fins educacionais.
