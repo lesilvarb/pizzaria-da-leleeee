@@ -1,0 +1,273 @@
+<!-- contato.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Bella Crosta</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#121212;
+      color:white;
+    }
+
+    header{
+      background:#1e1e1e;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:2px solid #ff9800;
+    }
+
+    header h1{
+      color:#ff9800;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ff9800;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:50px 20px;
+    }
+
+    .titulo{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .titulo h2{
+      color:#ff9800;
+      font-size:40px;
+      margin-bottom:10px;
+    }
+
+    .contato-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:40px;
+    }
+
+    .card{
+      background:#1e1e1e;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 0 15px rgba(0,0,0,0.4);
+    }
+
+    .card h3{
+      color:#ff9800;
+      margin-bottom:20px;
+      font-size:25px;
+    }
+
+    .info{
+      margin-bottom:15px;
+      line-height:1.8;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:15px;
+      background:#ff9800;
+      color:white;
+      padding:12px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#ffa726;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+    }
+
+    input, textarea{
+      margin-bottom:15px;
+      padding:15px;
+      border:none;
+      border-radius:8px;
+      outline:none;
+      background:#2a2a2a;
+      color:white;
+      font-size:16px;
+    }
+
+    textarea{
+      resize:none;
+      height:120px;
+    }
+
+    button{
+      background:#ff9800;
+      color:white;
+      border:none;
+      padding:15px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#ffa726;
+    }
+
+    iframe{
+      width:100%;
+      border:none;
+      border-radius:15px;
+      margin-top:20px;
+    }
+
+    .voltar{
+      text-align:center;
+      margin-top:50px;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#1e1e1e;
+      margin-top:50px;
+      border-top:2px solid #ff9800;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>🍕 Bella Crosta</h1>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="cardapio.html">Cardápio</a>
+  </nav>
+
+</header>
+
+<div class="container">
+
+  <div class="titulo">
+    <h2>Entre em Contato</h2>
+    <p>Estamos prontos para atender você 🍕</p>
+  </div>
+
+  <div class="contato-grid">
+
+    <!-- INFORMAÇÕES -->
+    <div class="card">
+
+      <h3>📞 Contatos</h3>
+
+      <div class="info">
+        <strong>WhatsApp:</strong><br>
+        (11) 99999-9999
+      </div>
+
+      <div class="info">
+        <strong>Instagram:</strong><br>
+        @bellacrosta
+      </div>
+
+      <div class="info">
+        <strong>Endereço:</strong><br>
+        Rua das Pizzas, 123 - São Paulo/SP
+      </div>
+
+      <a href="https://wa.me/5511977705127"
+         target="_blank"
+         class="btn">
+         Abrir WhatsApp
+      </a>
+
+      <br><br>
+
+      <a href="https://instagram.com"
+         target="_blank"
+         class="btn">
+         Abrir Instagram
+      </a>
+
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="card">
+
+      <h3>✉️ Envie uma Mensagem</h3>
+
+      <form>
+
+        <input type="text" placeholder="Seu nome" required>
+
+        <input type="email" placeholder="Seu e-mail" required>
+
+        <textarea placeholder="Digite sua mensagem"></textarea>
+
+        <button type="submit">
+          Enviar Mensagem
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- MAPA -->
+  <div class="card" style="margin-top:40px;">
+
+    <h3>📍 Nossa Localização</h3>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18"
+      height="350"
+      loading="lazy">
+    </iframe>
+
+  </div>
+
+  <!-- BOTÃO VOLTAR -->
+  <div class="voltar">
+
+    <a href="index.html" class="btn">
+      ⬅ Voltar para Início
+    </a>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Bella Crosta - Todos os direitos reservados
+</footer>
+
+</body>
+</html>
